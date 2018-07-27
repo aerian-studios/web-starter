@@ -1,0 +1,36 @@
+{
+    "name": "web-starter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "parcel src/index.html",
+        "build": "rm -rf dist && parcel build src/index.html",
+        "prepush": "lint-staged",
+        "format": "tslint --fix --project ."
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "husky": "^0.14.3",
+        "lint-staged": "^7.2.0",
+        "node-sass": "^4.9.2",
+        "parcel-bundler": "^1.9.7",
+        "tslint": "^5.11.0",
+        "tslint-config-aerian": "^1.0.2",
+        "typescript": "^2.9.2"
+    },
+    "lint-staged": {
+        "*.{js,jsx,css,md,scss}": [
+            "prettier --write",
+            "git add",
+            "jest --ci --findRelatedTests"
+        ],
+        "*.{ts,tsx}": [
+            "tslint --fix",
+            "git add",
+            "jest --ci --findRelatedTests"
+        ]
+    }
+}
